@@ -2,9 +2,15 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
 
+You can download the proyect and use it running the next docker image for the enviorement,inside the main project folder:
+
+```
+docker run -it -v ${PWD}:/usr/src/app -v /usr/src/app/node_modules -p 4200:4200 mflober/angapp19-image:1.0
+```
+
 ## Development server
 
-To start a local development server, run:
+To start a local development server, run inside the proyect folder:
 
 ```bash
 ng serve
