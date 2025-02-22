@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>{{ compania?.name }}</h2>
+
+    <img *ngIf="compania?.image_background" [src]="compania.image_background" [alt]="compania.name" class="compania-img">
+    
+    <p class="descripcion" [innerHTML]="compania?.description"></p> <!-- Se usa innerHTML para eliminar etiquetas <p> extra -->
+
+    <p>
+        <strong>Web:</strong> 
+        <a *ngIf="compania?.website" [href]="compania.website" target="_blank" class="text-blue-400 hover:underline">
+            {{ compania.website }}
+        </a>
+    </p>
+
+    <!-- Sección de Juegos -->
+    <div *ngIf="juegos.length > 0" class="juegos-container">
+        <div *ngFor="let juego of juegos" class="juego-card">
+            <img *ngIf="juego.background_image" [src]="juego.background_image" [alt]="juego.name" class="juego-img">
+            <h4>{{ juego.name }}</h4>
+            <p *ngIf="juego.metacritic">Puntuación: <span class="text-green-400">{{ juego.metacritic }}</span></p>
+        </div>
+    </div>
+
+</div>

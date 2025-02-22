@@ -1,0 +1,145 @@
+/* Estilos de la cabecera */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #6200ea; /* Color morado similar a la captura */
+    padding: 15px 20px;
+    color: white;
+}
+
+/* Logo */
+.logo h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Contenedor del logo y la imagen */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el texto y la imagen */
+}
+
+/* Imagen del logo */
+.logo-img {
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.search-bar input {
+    padding: 8px;
+    border: none;
+    outline: none;
+    width: 250px;
+    border-radius: 5px;
+}
+
+.search-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Opciones de usuario */
+.user-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-options button {
+    background: #ff4081; /* Color rosa para los botones */
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-options button:hover {
+    background: #bb1147;
+}
+
+/* Segunda Cabecera - Transparente Oscuro */
+.nav-bar {
+    background: rgba(0, 0, 0, 0.6); /* 🔥 Transparente oscuro */
+    position: fixed; /* 📌 Fijar arriba */
+    top: 80px; /* Ajustar para que no solape el menú principal */
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000; /* Asegurar que esté sobre el contenido pero debajo del header */
+    backdrop-filter: blur(10px); /* 💎 Efecto difuminado */
+}
+
+/* Ajuste para evitar que el carrusel se solape */
+.main-content {
+    padding-top: 120px; /* Espacio suficiente para que el contenido no quede debajo del nav */
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre el icono y el texto */
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.nav-links a i {
+    font-size: 1.2rem; /* Tamaño de los iconos */
+}
+
+.nav-links a:hover {
+    color: #ff4081;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ✅ Asegurar que los elementos del usuario no se solapen */
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}

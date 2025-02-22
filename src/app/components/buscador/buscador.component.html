@@ -1,0 +1,20 @@
+<div class="search-bar">
+  <input type="text" placeholder="Buscar juegos..." [(ngModel)]="searchTerm" (input)="onSearch()">
+  
+  <select [(ngModel)]="filterAttribute" (change)="onSearch()">
+      <option value="name">Nombre</option>
+      <option value="rating">Calificación</option>
+      <option value="released">Fecha de Lanzamiento</option>
+  </select>
+
+  <select [(ngModel)]="sortOption" (change)="onSort()">
+      <option value="name">Ordenar por Nombre</option>
+      <option value="rating">Ordenar por Calificación</option>
+      <option value="released">Ordenar por Fecha de Lanzamiento</option>
+  </select>
+
+  <!-- 🔍 Botón de búsqueda con icono bonito -->
+  <button class="search-btn" (click)="onSearch()">
+      <i class="fas fa-search"></i> <!-- Icono de FontAwesome -->
+  </button>
+</div>

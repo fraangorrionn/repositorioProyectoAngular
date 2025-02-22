@@ -1,0 +1,11 @@
+<div id="carouselJuegos" class="carousel">
+    <button class="prev-btn" (click)="prevSlide()">&#10094;</button>
+    <div class="carousel-inner">
+        <div *ngFor="let imagen of imagenesCarrusel; let i = index" 
+             class="carousel-item" 
+             [class.active]="i === currentSlide">
+            <img [src]="imagen" alt="Juego destacado">
+        </div>
+    </div>
+    <button class="next-btn" (click)="nextSlide()">&#10095;</button>
+</div>

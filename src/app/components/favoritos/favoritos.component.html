@@ -1,0 +1,22 @@
+<div class="container">
+    <h2 class="text-center">Tus Juegos Favoritos</h2>
+    <!-- Carrusel de favoritos -->
+    <div class="carousel-container">
+        <app-carrousel *ngIf="imagenesFavoritos.length > 0" [imagenesCarrusel]="imagenesFavoritos"></app-carrousel>
+    </div>
+    <div class="row justify-content-center">
+        <div *ngFor="let juego of juegosFavoritos" class="col-md-4 mb-4">
+            <div class="card bg-dark text-white shadow-lg h-100">
+                <img [src]="juego.background_image" class="card-img-top" alt="{{ juego.name }}">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title text-center">{{ juego.name }}</h5>
+                    <p class="card-text"><span>⭐</span> Rating: {{ juego.rating }}</p>
+                    <p class="card-text"><span>📅</span> Fecha de Lanzamiento: {{ juego.released }}</p>
+                    <button class="btn btn-danger mt-auto w-100" (click)="eliminarDeFavoritos(juego.id)">
+                        ❌ Eliminar de Favoritos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

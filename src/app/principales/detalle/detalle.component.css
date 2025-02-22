@@ -1,0 +1,72 @@
+/* Estilos generales */
+body {
+    background-color: #1a0033; /* Fondo oscuro elegante */
+    color: white; /* Texto blanco para contraste */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Contenedor principal */
+.detalle-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1); /* Fondo con leve transparencia */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px); /* Efecto difuminado */
+}
+
+/* Título del juego */
+.detalle-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+/* Imagen del juego */
+.detalle-container img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Información general */
+.detalle-container p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+/* Resaltar etiquetas */
+.detalle-container p strong {
+    color: #ff4b4b; /* Rojo vibrante */
+}
+
+/* Enlace a la compañía desarrolladora */
+.detalle-container a {
+    color: #4ba3ff; /* Azul vibrante */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.detalle-container a:hover {
+    text-decoration: underline;
+}
+
+/* Botón de volver */
+.detalle-container a[routerLink] {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff4b4b;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.detalle-container a[routerLink]:hover {
+    background-color: #cc0000;
+}

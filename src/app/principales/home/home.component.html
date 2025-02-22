@@ -1,0 +1,25 @@
+<app-carrousel [imagenesCarrusel]="imagenesCarrusel"></app-carrousel>
+
+<!-- Lista de juegos disponibles -->
+<h2 class="titulo text-white text-center mt-4">Juegos Destacados</h2>
+
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div *ngFor="let juego of juegosFiltrados" class="col-md-4 mb-4">
+      <div class="card bg-dark text-white shadow-lg h-100">
+        <img [src]="juego.background_image" class="card-img-top" alt="{{ juego.name }}">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title text-center">{{ juego.name }}</h5>
+          <p class="card-text"><span>⭐</span> Rating: {{ juego.rating }}</p>
+          <p class="card-text"><span>📅</span> Fecha de Lanzamiento: {{ juego.released }}</p>
+          <button class="btn btn-primary mt-auto w-100" (click)="verDetalles(juego)">Ver Detalles</button>
+          <button class="btn mt-2" 
+              [ngClass]="esFavorito(juego) ? 'btn-danger' : 'btn-success'"
+              (click)="toggleFavorito(juego)">
+              {{ esFavorito(juego) ? '❤️ Guardado' : '🤍 Guardar en Favoritos' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

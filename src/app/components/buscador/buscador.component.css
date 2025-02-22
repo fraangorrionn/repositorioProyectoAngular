@@ -1,0 +1,35 @@
+.search-bar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search-bar input, .search-bar select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.search-btn {
+  background-color: #ff4081; /* Color principal */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn i {
+  font-size: 1.2rem; /* Tamaño del icono */
+}
+
+.search-btn:hover {
+  background-color: #bb1147; /* Color al pasar el mouse */
+  transform: scale(1.1); /* Efecto de crecimiento */
+}

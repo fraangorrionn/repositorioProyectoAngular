@@ -1,0 +1,33 @@
+<header class="header">
+    <div class="logo">
+        <img src="assets/logo.jpg" alt="Logo de la aplicación" class="logo-img">
+        <h1>Proyecto RAWG</h1>
+    </div>
+
+    <app-buscador (searchTermChange)="onSearch($event)" (sortOptionChange)="onSort($event)"></app-buscador>
+
+    <div class="user-options">
+        <!-- Si el usuario NO está logueado, mostrar "Iniciar sesión" y "Registrarse" -->
+        <button *ngIf="!usuarioLogueado" class="btn" routerLink="/login">Iniciar sesión</button>
+        <button *ngIf="!usuarioLogueado" class="btn" routerLink="/registro">Registrarse</button>
+
+        <!-- Si el usuario está logueado, mostrar su foto de perfil y botón de cerrar sesión -->
+        <!-- Si el usuario está logueado, mostrar su foto de perfil a la derecha -->
+        <div *ngIf="usuarioLogueado" class="user-info">
+            <button class="btn" (click)="cerrarSesion()">Cerrar sesión</button>
+            <img *ngIf="fotoPerfil" [src]="fotoPerfil" alt="Foto de perfil" class="profile-pic">
+        </div>
+
+    </div>
+</header>
+
+<!-- Segunda Cabecera con iconos -->
+<nav class="nav-bar">
+    <ul class="nav-links">
+        <li><a routerLink="/home"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a routerLink="/juegos"><i class="fas fa-gamepad"></i> Juegos</a></li>
+        <li><a routerLink="/contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+        <li><a routerLink="/favoritos"><i class="fas fa-heart"></i> Favoritos</a></li>
+    </ul>
+</nav>
+

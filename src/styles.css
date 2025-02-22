@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+/* Asegurar que la página ocupe toda la altura */
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, #090014, #6200ea);
+    color: white;
+}
+
+/* Hace que el contenido principal ocupe el espacio disponible */
+app-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que la página tenga la altura completa */
+}
+
+/* Asegura que el contenido empuje el footer hacia abajo */
+.main-content {
+    flex: 1;
+    padding-bottom: 50px; /* 🔥 Agrega espacio entre el contenido y el footer */
+}
+
+
+/* Mantener el footer fijo en la parte inferior */
+.footer {
+    background: #090014;
+    color: white;
+    padding: 30px 15px;
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    margin-top: auto; /* 🔥 Esto hace que el footer se empuje hacia abajo */
+}

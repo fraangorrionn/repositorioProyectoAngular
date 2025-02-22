@@ -1,0 +1,64 @@
+.container {
+    padding: 20px;
+}
+
+.row {
+    justify-content: center;
+}
+
+.card {
+    background-color: black !important;
+    color: white !important;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 14px;
+}
+
+.btn {
+    font-weight: bold;
+    background-color: #ff4081;
+}
+
+.btn:hover {
+    background-color: #bb1147;
+}
+
+/* 🔹 Carrusel más estrecho y alargado en favoritos */
+.carousel {
+    margin: 20px auto;
+    max-width: 200px; 
+    height: 500px;
+}
+
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita distorsión de imágenes */
+    border-radius: 10px;
+}
+
+  
