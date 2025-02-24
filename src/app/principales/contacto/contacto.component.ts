@@ -24,9 +24,9 @@ export class ContactoComponent {
   constructor() {}
 
   enviarFormulario() {
-    const serviceID = 'service_4x4nkb8'; // Reemplaza con tu Service ID de EmailJS
-    const templateID = 'template_fb7ugy9'; // Reemplaza con tu Template ID
-    const publicKey = 'kRA8v7Azd9-oAXrnz'; // Reemplaza con tu Public Key de EmailJS
+    const serviceID = 'service_4x4nkb8';
+    const templateID = 'template_fb7ugy9'; 
+    const publicKey = 'kRA8v7Azd9-oAXrnz'; 
 
     const templateParams = {
       from_name: `${this.contacto.nombre} ${this.contacto.apellidos}`,
@@ -40,10 +40,8 @@ export class ContactoComponent {
         console.log('Correo enviado:', response);
         this.mensajeEnviado = true;
 
-        // Limpiar formulario después de enviar
         this.contacto = { nombre: '', apellidos: '', telefono: '', email: '', mensaje: '' };
 
-        // Ocultar mensaje después de unos segundos
         setTimeout(() => {
           this.mensajeEnviado = false;
         }, 3000);

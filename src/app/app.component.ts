@@ -16,16 +16,16 @@ export class AppComponent {
   sortOption: string = '';
 
   constructor() {
-    console.log("🚀 AppComponent ha sido inicializado correctamente.");
+    console.log("AppComponent ha sido inicializado correctamente.");
   }
 
   filtrarJuegos(event: { term: string; attribute: string }) {
     this.searchTerm = event;
-    console.log("🔍 Buscando:", event);
+    console.log("Buscando:", event);
   }
 
   ordenarJuegos(sortOption: string) {
     this.sortOption = sortOption;
-    console.log("📌 Ordenando por:", sortOption);
+    console.log("Ordenando por:", sortOption);
   }
 }

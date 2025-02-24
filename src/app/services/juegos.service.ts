@@ -43,8 +43,8 @@ import { catchError } from 'rxjs/operators';
 
     getTodosLosJuegos(): Observable<any[]> {
         let allGames: any[] = [];
-        const maxPages: number = 5; // Puedes ajustar este número según la cantidad de juegos que necesites
-        const requests: Observable<any>[] = []; // 🔹 Definimos que 'requests' es un array de Observables
+        const maxPages: number = 5; 
+        const requests: Observable<any>[] = []; 
       
         for (let page = 1; page <= maxPages; page++) {
           const request: Observable<any> = this.http.get<any>(`${this.API_URL}?key=${this.API_KEY}&page=${page}&page_size=40`).pipe(
@@ -58,7 +58,7 @@ import { catchError } from 'rxjs/operators';
       
           requests.forEach((req: Observable<any>) => {
             req.subscribe({
-              next: (data: any) => { // 🔹 Especificamos el tipo de 'data'
+              next: (data: any) => { 
                 if (data.results) {
                   allGames = [...allGames, ...data.results];
                 }

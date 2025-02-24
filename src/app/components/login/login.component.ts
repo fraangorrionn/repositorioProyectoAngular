@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    // Si hay un usuario guardado, redirigirlo al home automáticamente
+
     if (localStorage.getItem('usuario')) {
       this.router.navigate(['/home']);
     }
@@ -31,9 +31,9 @@ export class LoginComponent implements OnInit {
     const usuarioGuardado = JSON.parse(localStorage.getItem('usuarioRegistrado') || '{}');
 
     if (this.usuario.email === usuarioGuardado.email && this.usuario.password === usuarioGuardado.password) {
-        console.log("✅ Login exitoso. Foto de perfil:", usuarioGuardado.fotoPerfil); // ✅ Debug
+        console.log("Login exitoso. Foto de perfil:", usuarioGuardado.fotoPerfil);
 
-        // Guardar usuario en sesión con la imagen incluida
+  
         localStorage.setItem('usuario', JSON.stringify(usuarioGuardado));
 
         this.router.navigate(['/home']);

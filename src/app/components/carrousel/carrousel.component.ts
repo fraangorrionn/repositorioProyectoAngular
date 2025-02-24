@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./carrousel.component.css']
 })
 export class CarrouselComponent implements OnInit, OnDestroy {
-  @Input() imagenesCarrusel: string[] = []; // Recibe imágenes desde JuegosComponent
+  @Input() imagenesCarrusel: string[] = []; 
   currentSlide: number = 0;
   intervalId: any;
 

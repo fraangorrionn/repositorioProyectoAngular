@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Output, OnInit, DoCheck } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BuscadorComponent } from '../buscador/buscador.component';
-import { Router, RouterModule } from '@angular/router'; // ✅ Importamos RouterModule
+import { Router, RouterModule } from '@angular/router'; 
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [CommonModule, BuscadorComponent, RouterModule], // ✅ Agregar RouterModule aquí
+  imports: [CommonModule, BuscadorComponent, RouterModule], 
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
@@ -41,16 +41,15 @@ export class MenuComponent implements OnInit, DoCheck {
   }
 
   onSearch(event: { term: string, attribute: string }): void {
-    console.log("🔎 BuscadorComponent emitiendo búsqueda:", event);
+    console.log("BuscadorComponent emitiendo búsqueda:", event);
   
-    // ✅ Detectamos si estamos en la página de juegos o en home
     const currentRoute = this.router.url.startsWith('/juegos') ? '/juegos' : '/home';
   
     this.router.navigate([currentRoute], { queryParams: { term: event.term, attribute: event.attribute } });
   }
   
   onSort(option: string): void {
-    console.log("📌 Evento de orden recibido en MenuComponent:", option);
+    console.log("Evento de orden recibido en MenuComponent:", option);
   
     const currentRoute = this.router.url.startsWith('/juegos') ? '/juegos' : '/home';
   

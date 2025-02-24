@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerJuegos();
     
-    // ✅ Escucha cambios en la URL para actualizar búsqueda y ordenamiento
     this.route.queryParams.subscribe(params => {
       if (params['term'] && params['attribute']) {
         this.searchTerm = { term: params['term'], attribute: params['attribute'] };
@@ -33,7 +32,7 @@ export class HomeComponent implements OnInit {
       if (params['sort']) {
         this.sortOption = params['sort'];
       }
-      this.aplicarFiltros(); // Aplica los filtros en tiempo real
+      this.aplicarFiltros();
     });
   }
 
@@ -59,27 +58,25 @@ export class HomeComponent implements OnInit {
         this.listaJuegos = response.results;
         this.juegosFiltrados = [...this.listaJuegos];
 
-        // Seleccionar solo 5 imágenes destacadas para el carrusel
         this.imagenesCarrusel = this.listaJuegos.slice(0, 5).map(juego => juego.background_image);
         
-        this.cdr.detectChanges(); // 🔴 IMPORTANTE: Forzar la detección de cambios
+        this.cdr.detectChanges(); 
       }
     }, error => console.error('Error al obtener los juegos:', error));
   }
 
   aplicarFiltros(): void {
-    console.log("📌 Aplicando filtros en HomeComponent...");
+    console.log("Aplicando filtros en HomeComponent...");
     
     if (this.searchTerm && this.listaJuegos.length) {
       const { term, attribute } = this.searchTerm;
-      console.log("🔎 Filtrando por:", attribute, "con valor:", term);
+      console.log("Filtrando por:", attribute, "con valor:", term);
   
       this.juegosFiltrados = this.listaJuegos.filter(juego =>
         juego[attribute]?.toString().toLowerCase().includes(term.toLowerCase())
       );
     }
-  
-    // ✅ Ordenar según la opción seleccionada
+
     if (this.sortOption) {
       this.juegosFiltrados.sort((a, b) => {
         if (typeof a[this.sortOption] === 'string') {
@@ -90,38 +87,36 @@ export class HomeComponent implements OnInit {
       });
     }
   
-    console.log("🎯 Juegos después del filtrado:", this.juegosFiltrados);
-    this.cdr.detectChanges(); // 🔴 IMPORTANTE: Forzar la actualización de la vista
+    console.log("Juegos después del filtrado:", this.juegosFiltrados);
+    this.cdr.detectChanges();
   }
 
   verDetalles(juego: any): void {
-    this.router.navigate(['/detalle', juego.id]); // Redirige a la página de detalles
+    this.router.navigate(['/detalle', juego.id]); 
   }
 
   guardarEnFavoritos(juego: any) {
     let favoritos = localStorage.getItem('favoritos');
     let listaFavoritos: any[] = favoritos ? JSON.parse(favoritos) : [];
 
-    // Si ya está guardado, lo eliminamos; si no, lo agregamos
     if (this.esFavorito(juego)) {
         listaFavoritos = listaFavoritos.filter((fav: any) => fav.id !== juego.id);
-        console.log("❌ Juego eliminado de favoritos:", juego.name);
+        console.log("Juego eliminado de favoritos:", juego.name);
     } else {
         listaFavoritos.push(juego);
-        console.log("✅ Juego guardado en favoritos:", juego.name);
+        console.log("Juego guardado en favoritos:", juego.name);
     }
 
     localStorage.setItem('favoritos', JSON.stringify(listaFavoritos));  
   }
 
-  // ✅ Función para verificar si un juego está en favoritos
   esFavorito(juego: any): boolean {
       let favoritos = localStorage.getItem('favoritos');
       let listaFavoritos: any[] = favoritos ? JSON.parse(favoritos) : [];
       return listaFavoritos.some((fav: any) => fav.id === juego.id);
   }
 
-  // ✅ Función para alternar el estado de favorito
+
   toggleFavorito(juego: any) {
       this.guardarEnFavoritos(juego);
   }

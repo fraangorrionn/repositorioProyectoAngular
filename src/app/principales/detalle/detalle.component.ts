@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { JuegosService } from '../../services/juegos.service';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router'; // ✅ Importar RouterModule
+import { RouterModule } from '@angular/router'; 
 
 @Component({
   selector: 'app-detalle',
   standalone: true,
-  imports: [CommonModule, RouterModule], // ✅ Agregar RouterModule aquí
+  imports: [CommonModule, RouterModule], 
   templateUrl: './detalle.component.html',
   styleUrls: ['./detalle.component.css']
 })

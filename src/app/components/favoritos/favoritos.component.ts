@@ -5,7 +5,7 @@ import { CarrouselComponent } from '../carrousel/carrousel.component';
 @Component({
   selector: 'app-favoritos',
   standalone: true,
-  imports: [CommonModule, CarrouselComponent], // Importamos el carrusel
+  imports: [CommonModule, CarrouselComponent], 
   templateUrl: './favoritos.component.html',
   styleUrls: ['./favoritos.component.css']
 })
@@ -21,7 +21,7 @@ export class FavoritosComponent implements OnInit {
     const favoritos = localStorage.getItem('favoritos');
     this.juegosFavoritos = favoritos ? JSON.parse(favoritos) : [];
 
-    // Extraer imágenes para el carrusel
+
     this.imagenesFavoritos = this.juegosFavoritos.map(juego => juego.background_image);
   }
 
@@ -29,7 +29,6 @@ export class FavoritosComponent implements OnInit {
     this.juegosFavoritos = this.juegosFavoritos.filter(juego => juego.id !== juegoId);
     localStorage.setItem('favoritos', JSON.stringify(this.juegosFavoritos));
 
-    // Actualizar el carrusel eliminando la imagen del juego
     this.imagenesFavoritos = this.juegosFavoritos.map(juego => juego.background_image);
   }
 }

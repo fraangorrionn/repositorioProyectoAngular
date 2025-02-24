@@ -29,7 +29,6 @@ export class ContenidoJuegosComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerTodosLosJuegos();
 
-    // ✅ Escuchar cambios en los parámetros de búsqueda de la URL
     this.route.queryParams.subscribe(params => {
       if (params['term'] && params['attribute']) {
         this.searchTerm = { term: params['term'], attribute: params['attribute'] };
@@ -57,18 +56,15 @@ export class ContenidoJuegosComponent implements OnInit {
   }
 
   aplicarFiltros(): void {
-    console.log("📌 Aplicando filtros en ContenidoJuegosComponent...");
-
     if (this.searchTerm.term && this.listaJuegos.length) {
       const { term, attribute } = this.searchTerm;
-      console.log("🔎 Filtrando por:", attribute, "con valor:", term);
+      console.log("Filtrando por:", attribute, "con valor:", term);
 
       this.juegosFiltrados = this.listaJuegos.filter(juego =>
         juego[attribute]?.toString().toLowerCase().includes(term.toLowerCase())
       );
     }
 
-    // ✅ Ordenar según la opción seleccionada
     if (this.sortOption) {
       this.juegosFiltrados.sort((a, b) => {
         if (typeof a[this.sortOption] === 'string') {
@@ -79,7 +75,7 @@ export class ContenidoJuegosComponent implements OnInit {
       });
     }
 
-    console.log("🎯 Juegos después del filtrado:", this.juegosFiltrados);
+    console.log("Juegos después del filtrado:", this.juegosFiltrados);
     this.cdr.detectChanges();
   }
 
@@ -93,10 +89,10 @@ export class ContenidoJuegosComponent implements OnInit {
 
     if (this.esFavorito(juego)) {
       listaFavoritos = listaFavoritos.filter((fav: any) => fav.id !== juego.id);
-      console.log("❌ Juego eliminado de favoritos:", juego.name);
+      console.log("Juego eliminado de favoritos:", juego.name);
     } else {
       listaFavoritos.push(juego);
-      console.log("✅ Juego guardado en favoritos:", juego.name);
+      console.log("Juego guardado en favoritos:", juego.name);
     }
 
     localStorage.setItem('favoritos', JSON.stringify(listaFavoritos));  

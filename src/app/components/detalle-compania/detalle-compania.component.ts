@@ -27,7 +27,6 @@ export class DetalleCompaniaComponent implements OnInit {
     this.juegosService.getCompaniaById(id).subscribe((data) => {
         this.compania = data;
 
-        // Verifica si la compañía tiene un nombre válido para buscar juegos
         if (this.compania?.name) {
             this.obtenerJuegosDeCompania(this.compania.name);
         }
@@ -36,7 +35,7 @@ export class DetalleCompaniaComponent implements OnInit {
 
   obtenerJuegosDeCompania(developerName: string): void {
       this.juegosService.getJuegosByCompania(developerName).subscribe((data) => {
-          this.juegos = data.results; // RAWG API almacena los juegos en 'results'
+          this.juegos = data.results; 
       });
   }
 }
